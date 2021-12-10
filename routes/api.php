@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group([], function() {
+    Route::get('items', 'App\Http\Controllers\API\ItemController@index');
+    Route::post('items', 'App\Http\Controllers\API\ItemController@store');
+    Route::get('items/{id}', 'App\Http\Controllers\API\ItemController@show');
+    Route::patch('items/{id}', 'App\Http\Controllers\API\ItemController@update');
+    Route::delete('items/{id}', 'App\Http\Controllers\API\ItemController@destroy');
 });
