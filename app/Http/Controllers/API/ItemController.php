@@ -62,7 +62,7 @@ class ItemController extends BaseController
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-        ]); //check do this should be required
+        ]);
 
         $item = Item::where('id', '=', $id)->where('deleteflag', '!=', 1)->first();
 
