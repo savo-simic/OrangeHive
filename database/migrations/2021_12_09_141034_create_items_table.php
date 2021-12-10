@@ -14,10 +14,11 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement();
+            $table->integer('id', true);
             $table->string('title');
             $table->text('description');
-            $table->tinyInteger('deleteflag')->default(0);
+//            $table->tinyInteger('deleteflag')->default(0);
+            $table->boolean('deleteflag')->default(false);
             $table->timestamps();
         });
     }
